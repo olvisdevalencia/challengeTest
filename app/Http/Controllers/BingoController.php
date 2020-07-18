@@ -74,4 +74,19 @@ class BingoController extends Controller
         }
 
     }
+
+    /**
+     * Method to show , what numbers is not appear
+     */
+    private function notAppear($whichNumber)
+    {
+        if($this->results[$whichNumber] == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }
