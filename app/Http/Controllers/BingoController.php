@@ -89,4 +89,41 @@ class BingoController extends Controller
             return true;
         }
     }
+
+    /**
+     * Method to generate a ramdon card.
+     */
+    function generateCard()
+    {
+
+        $card = array();
+
+        for ($row = 1; $row < 8; ++$row)
+        {
+
+          $card[$row] = array();
+
+          $deck = range($row*10, $row*10+9);
+
+          shuffle($deck);
+
+          for($col = 1; $col < 8; ++$col)
+          {
+
+            if($row == 7 OR $col == 7)
+            {
+              $card[$row][$col] = 0;
+            }
+            else
+            {
+              $card[$row][$col] = $deck[$col];
+            }
+
+          }
+
+        }
+
+        return $card;
+
+    }
 }
